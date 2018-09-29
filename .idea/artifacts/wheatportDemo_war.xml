@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="wheatportDemo:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="wheatportDemo.war">
+      <element id="artifact" artifact-name="wheatportDemo:war exploded" />
+    </root>
+  </artifact>
+</component>
