@@ -5,6 +5,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+// to access other languages use url that has a parameter[/welcome?lang=tr]
+
 @Controller
 @RequestMapping("/")
 public class WelcomePageController {
@@ -16,9 +18,21 @@ public class WelcomePageController {
 	}
 
 	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
-	public String sayHelloAgain(ModelMap model) {
+	public String welcome(ModelMap model) {
 		model.addAttribute("greeting", "Hello World Again, from Spring 4 MVC");
 		return "welcome";
+	}
+
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login(ModelMap model) {
+		model.addAttribute("loginMessage", "This is login page.");
+		return "login";
+	}
+
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String loginPOST(ModelMap model) {
+		model.addAttribute("loginMessage", "This is login page.");
+		return "login";
 	}
 
 }
