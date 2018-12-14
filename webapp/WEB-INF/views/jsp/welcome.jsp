@@ -2,88 +2,107 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib prefix="th" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <%--<title><spring:message code="app.title"/></title>--%>
 
-    <%--<spring:theme code="app.stylesheet" var="themeName"/>--%>
-    <%--<link href='<spring:url value="/resources/views/theme/css/${themeName}"/>' rel="stylesheet"/>--%>
-    <%--<link href="<c:url value="/WEB-INF/resources/views/vendor/bootstrap/css/bootstrap.css" />" rel="stylesheet">--%>
-    <%--<link href="../css/bootstrap.css" rel="stylesheet" type="text/css">--%>
-    <%--<link href="/views/vendor/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">--%>
-    <%--<link href="../views/vendor/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">--%>
-    <%--<link href="/res/views/vendor/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">--%>
-    <%--<link href="../res/views/vendor/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">--%>
-    <link href="res/views/vendor/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Wheat-Port</title>
+    <jsp:include page="cascadingstyles.jsp"/>
+
 </head>
+
 <body>
 
+<!-- Navigation -->
+<jsp:include page="navigationbar.jsp"/>
+
+<!-- Page Content -->
 <div class="container">
-    <button type="button" class="btn">Basic</button>
-    <button type="button" class="btn btn-default">Default</button>
-    <button type="button" class="btn btn-primary">Primary</button>
-    <button type="button" class="btn btn-success">Success</button>
-    <button type="button" class="btn btn-info">Info</button>
-    <button type="button" class="btn btn-warning">Warning</button>
-    <button type="button" class="btn btn-danger">Danger</button>
-    <button type="button" class="btn btn-link">Link</button>
+
+    <!-- Jumbotron Header -->
+    <header class="jumbotron my-4">
+        <h1 class="display-3">A Warm Welcome!</h1>
+        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt
+            possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam
+            repellat.</p>
+        <a href="#" class="btn btn-primary btn-lg">Call to action!</a>
+    </header>
+
+    <!-- Page Features -->
+    <div class="row text-center">
+
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card">
+                <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">Card title</h4>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse
+                        necessitatibus neque.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="/productdetailpage" class="btn btn-primary">Product</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card">
+                <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">Card title</h4>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni
+                        sapiente, tempore debitis beatae culpa natus architecto.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-primary">Find Out More!</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card">
+                <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">Card title</h4>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse
+                        necessitatibus neque.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-primary">Find Out More!</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card">
+                <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">Card title</h4>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni
+                        sapiente, tempore debitis beatae culpa natus architecto.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-primary">Find Out More!</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.row -->
+
 </div>
-<spring:theme code="greeting" var="themeName" />
-<p>${themeName}</p>
-<%--<span th:text="#{lang.change}"></span>:--%>
-<%--<select id="locales">--%>
-    <%--<option value=""></option>--%>
-    <%--<option value="en" th:text="#{lang.eng}"></option>--%>
-    <%--<option value="fr" th:text="#{lang.tr}"></option>--%>
-<%--</select>--%>
+<!-- /.container -->
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-    <%--<a class="navbar-brand" href="#"><spring:message code="app.title"/></a>--%>
-    <%--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"--%>
-            <%--aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">--%>
-        <%--<span class="navbar-toggler-icon"></span>--%>
-    <%--</button>--%>
-    <%--<div class="collapse navbar-collapse" id="navbarCollapse">--%>
-        <%--<ul class="navbar-nav mr-auto">--%>
-            <%--<li class="nav-item active"><a class="nav-link" href="#"><spring:message code="app.nav.home"/> <span--%>
-                    <%--class="sr-only"></span></a></li>--%>
-        <%--</ul>--%>
-    <%--</div>--%>
-</nav>
+<!-- Footer -->
+<jsp:include page="footer.jsp"/>
 
-<%--<div role="main" class="container">--%>
-    <%--<div class="jumbotron">--%>
-        <%--<h1><spring:message code="app.page.header"/></h1>--%>
-        <%--<p class="lead"><spring:message code="app.page.body"/></p>--%>
+<!-- Bootstrap core JavaScript -->
+<jsp:include page="javascripts.jsp"/>
 
-
-        <%--<div class="dropdown">--%>
-            <%--<button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton"--%>
-                    <%--data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><spring:message--%>
-                    <%--code="app.theme.title"/></button>--%>
-            <%--<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">--%>
-                <%--<a class="dropdown-item" href="?theme=pulse"><spring:message code="app.theme.pulse"/></a>--%>
-                <%--<a class="dropdown-item" href="?theme=cerulean"><spring:message code="app.theme.cerulean"/></a>--%>
-            <%--</div>--%>
-        <%--</div>--%>
-        <%--<hr/>--%>
-        <%--<!-- Dropdown for selecting language -->--%>
-        <%--<div class="dropdown">--%>
-            <%--<button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton"--%>
-                    <%--data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><spring:message--%>
-                    <%--code="app.lang.title"/></button>--%>
-            <%--<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">--%>
-                <%--<a class="dropdown-item" href="?lang=en"><spring:message code="app.lang.english"/></a>--%>
-                <%--<a class="dropdown-item" href="?lang=en"><spring:message code="app.lang.turkish"/></a>--%>
-            <%--</div>--%>
-        <%--</div>--%>
-
-    <%--</div>--%>
-<%--</div>--%>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
