@@ -52,7 +52,7 @@ public class WheatportConfiguration implements WebMvcConfigurer {
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/res/**").addResourceLocations("/resources/");
-//		registry.addResourceHandler("/res/**").addResourceLocations("/resources/","/WEB-INF/resources/","/src/main/resources/");
+//		registry.addResourceHandler("/res/**").addResourceLocations("/resources/");
+		registry.addResourceHandler("/res/**").addResourceLocations("/resources/","/WEB-INF/resources/","/src/main/resources/");
 	}
 }

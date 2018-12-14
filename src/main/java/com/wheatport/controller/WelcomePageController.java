@@ -23,16 +23,22 @@ public class WelcomePageController {
 		return "welcome";
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login(ModelMap model) {
-		model.addAttribute("loginMessage", "This is login page.");
-		return "login";
+	@RequestMapping(value = "/signin", method = RequestMethod.GET)
+	public String signin(ModelMap model) {
+		model.addAttribute("signinMessage", "This is signin page.");
+		return "signin";
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String loginPOST(ModelMap model) {
-		model.addAttribute("loginMessage", "This is login page.");
-		return "login";
+	@RequestMapping(value = "/signin", method = RequestMethod.POST)
+	public String signinPOST(ModelMap model) {
+		model.addAttribute("signinMessage", "This is signin page.");
+		return "signin";
+	}
+
+	@RequestMapping(value = "/productdetailpage", method = RequestMethod.GET)
+	public String productDetailPage(ModelMap model) {
+		model.addAttribute("signinMessage", "This is signin page.");
+		return "productdetailpage";
 	}
 
 }

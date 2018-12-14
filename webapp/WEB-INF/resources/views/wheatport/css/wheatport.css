@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'Carnas Regular';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Carnas Regular'), local('Carnas Regular'), url("./views/fonts/Carnas Regular.woff") format('woff');
+}
+
+/*.mt-4, .my-4 {*/
+    /*margin-top: 5.5rem !important;*/
+/*}*/
+
+html {
+    font-family: 'CarnasRegular', sans-serif !important;
+}
+
+button {
+    margin: 10px 10px 10px 10px;
+    padding-top: 20px
+}
