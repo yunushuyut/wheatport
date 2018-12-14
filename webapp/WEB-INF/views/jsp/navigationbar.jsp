@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: huyut
@@ -35,6 +36,9 @@
         </div>
         <%--<button class="btn btn-success" id="signin" onclick="alert('SIGN IN called.')">SIGN IN</button>--%>
         <%--<button class="btn btn-info" id="signup" onclick="alert('SIGN UP called.')">SIGN UP</button>--%>
-        <a class="btn btn-primary" href="/signin" role="button">Signin</a>
+        <a class="btn btn-primary" href="/signin" style="margin-left: 10px;" role="button">Signin</a>
+        <c:if test="${3000 > 2000}"><%--PUT SESSION CONDITION HERE--%>
+            <a class="btn btn-success" href="/signup" style="margin-left: 10px;" role="button">Signup</a>
+        </c:if>
     </div>
 </nav>

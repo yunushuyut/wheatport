@@ -35,9 +35,21 @@ public class WelcomePageController {
 		return "signin";
 	}
 
+	@RequestMapping(value = "/signup", method = RequestMethod.GET)
+	public String signup(ModelMap model) {
+		model.addAttribute("signinMessage", "This is signup page.");
+		return "signup";
+	}
+
+	@RequestMapping(value = "/signup", method = RequestMethod.POST)
+	public String signupPOST(ModelMap model) {
+		model.addAttribute("signinMessage", "This is signup page.");
+		return "signup";
+	}
+
 	@RequestMapping(value = "/productdetailpage", method = RequestMethod.GET)
 	public String productDetailPage(ModelMap model) {
-		model.addAttribute("signinMessage", "This is signin page.");
+		model.addAttribute("signinMessage", "This is productdetailpage page.");
 		return "productdetailpage";
 	}
 
