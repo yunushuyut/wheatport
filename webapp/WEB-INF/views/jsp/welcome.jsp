@@ -26,7 +26,7 @@
 
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4">
-        <h1 class="display-3">A Warm Welcome!</h1>
+        <h1 class="display-3">A Yunus Welcome!</h1>
         <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt
             possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam
             repellat.</p>
@@ -82,12 +82,12 @@
             <div class="card">
                 <img class="card-img-top" src="http://placehold.it/500x325" alt="">
                 <div class="card-body">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni
-                        sapiente, tempore debitis beatae culpa natus architecto.</p>
+                    <h4 class="card-title">Add Person</h4>
+                    <p class="card-text">Artık ilk personellerimizi Hibernate ile database ekleyip kulanabilmeliyiz.
+                    Zaten çoğunu hazırladık gerisi gelecektir.</p>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Find Out More!</a>
+                    <a href="/add-person" class="btn btn-info">Lets Add Person</a>
                 </div>
             </div>
         </div>
