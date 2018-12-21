@@ -23,7 +23,9 @@
 
 <!-- Page Content -->
 <div class="container">
+    <div class="container">
 
+    </div>
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4">
         <h1 class="display-3">A Yunus Welcome!</h1>

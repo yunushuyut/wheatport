@@ -7,6 +7,7 @@
           <file>file://$MODULE_DIR$/src/main/java/com/wheatport/configuration/MongoConfig.java</file>
           <file>file://$MODULE_DIR$/src/main/java/com/wheatport/configuration/SimpleMongoConfig.java</file>
           <file>file://$MODULE_DIR$/src/main/java/com/wheatport/configuration/WheatportConfiguration.java</file>
+          <file>file://$MODULE_DIR$/src/main/resources/wheatportApplicationContext.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -57,5 +58,7 @@
     <orderEntry type="library" name="Maven: com.mysema.commons:mysema-commons-lang:0.2.4" level="project" />
     <orderEntry type="library" name="Maven: com.infradna.tool:bridge-method-annotation:1.13" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:2.0.10.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:2.0.5.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.0.5.RELEASE" level="project" />
   </component>
 </module>
