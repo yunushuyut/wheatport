@@ -42,3 +42,12 @@
         </c:if>
     </div>
 </nav>
+<div>
+    <c:choose>
+        <c:when test="${globalmessagetype == 'info'}"><h3 style="color: dodgerblue">${globalmessagecontent}</h3></c:when>
+        <c:when test="${globalmessagetype == 'error'}"><h3 style="color: red">${globalmessagecontent}</h3></c:when>
+        <c:when test="${globalmessagetype == 'success'}"><h3 style="color: green">${globalmessagecontent}</h3></c:when>
+        <c:when test="${globalmessagetype == 'warning'}"><h3 style="color: orange">${globalmessagecontent}</h3></c:when>
+        <c:otherwise></c:otherwise>
+    </c:choose>
+</div>

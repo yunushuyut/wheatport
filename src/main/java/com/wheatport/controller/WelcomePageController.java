@@ -1,28 +1,38 @@
 package com.wheatport.controller;
 
+import com.wheatport.constant.MessageType;
 import com.wheatport.constant.UniversalUrlConstants;
 import com.wheatport.form.PersonAddForm;
 import com.wheatport.model.Person;
 import com.wheatport.repository.PersonRepository;
+import com.wheatport.utils.GlobalMessage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.awt.*;
 
 import static com.wheatport.constant.UniversalUrlConstants.STATIC_SIGNIN_SUCCESSPAGE;
 
 // to access other languages use url that has a parameter[/welcome?lang=tr]
 
+@PropertySource("classpath:locale/messages.properties")
 @Controller
 @RequestMapping("/")
 public class WelcomePageController {
 
     @Autowired
     PersonRepository personRepository;
+    @Autowired
+    private Environment env;
 
     @RequestMapping(method = RequestMethod.GET)
     public String sayHello(ModelMap model) {
@@ -33,6 +43,7 @@ public class WelcomePageController {
     @RequestMapping(value = "/welcome", method = RequestMethod.GET)
     public String welcome(ModelMap model) {
         model.addAttribute("greeting", "Hello World Again, from Spring 4 MVC");
+
         return "welcome";
     }
 
@@ -43,7 +54,7 @@ public class WelcomePageController {
     }
 
     @RequestMapping(value = "/signin", method = RequestMethod.POST)
-    public String signinPOST(ModelMap model, @ModelAttribute("personform") PersonAddForm personform) {
+    public String signinPOST(ModelMap model, @ModelAttribute("personform") PersonAddForm personform, BindingResult result) {
 
         Person person = new Person();
         if (!StringUtils.isEmpty(personform.getEmail())) {
@@ -55,16 +66,21 @@ public class WelcomePageController {
             isSuccess = checkValidity(person, personform.getPassword());
         }
 
+//        if (result.hasErrors()) {
+        GlobalMessage.addMessage(MessageType.ERROR, env.getProperty("globalmessage.error.text"), model);
+//        }
+
         if (isSuccess) {
             model.addAttribute("signinMessage", "This is signin page.");
             return STATIC_SIGNIN_SUCCESSPAGE;
         } else {
+
             return null; //TODO handle error page
         }
     }
 
     private Boolean checkValidity(Person person, String password) {
-        if(person.getPassword().equals(password))
+        if (person.getPassword().equals(password))
             return Boolean.TRUE;
         else
             return Boolean.FALSE;
