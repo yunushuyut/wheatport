@@ -6,7 +6,6 @@
     <bean id="globalMessage" class="com.wheatport.utils.GlobalMessage">
     </bean>
 
-    <bean id="xmlStringBean2" class="java.lang.String">
-        <constructor-arg value="stringBean2" />
+    <bean id="personService" class="com.wheatport.service.PersonService" abstract="true">
     </bean>
 </beans>

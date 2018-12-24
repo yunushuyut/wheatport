@@ -13,14 +13,11 @@
     <meta name="author" content="">
     <title>Wheat-Port</title>
     <jsp:include page="cascadingstyles.jsp"/>
-
 </head>
 
 <body>
-
 <!-- Navigation -->
 <jsp:include page="navigationbar.jsp"/>
-
 <!-- Page Content -->
 <div class="container">
     <div class="container">
@@ -86,7 +83,7 @@
                 <div class="card-body">
                     <h4 class="card-title">Add Person</h4>
                     <p class="card-text">Artık ilk personellerimizi Hibernate ile database ekleyip kulanabilmeliyiz.
-                    Zaten çoğunu hazırladık gerisi gelecektir.</p>
+                        Zaten çoğunu hazırladık gerisi gelecektir.</p>
                 </div>
                 <div class="card-footer">
                     <a href="/add-person" class="btn btn-info">Lets Add Person</a>

@@ -6,6 +6,7 @@ import com.wheatport.constant.UniversalUrlConstants;
 import com.wheatport.form.PersonAddForm;
 import com.wheatport.model.Person;
 import com.wheatport.repository.PersonRepository;
+import com.wheatport.service.PersonService;
 import com.wheatport.utils.GlobalMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
@@ -38,7 +39,7 @@ public class WelcomePageController {
     @Autowired
     GlobalMessage globalMessage;
     @Autowired
-    MongoOperations mongoOperations;
+    PersonService personService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String sayHello(ModelMap model) {
@@ -119,27 +120,16 @@ public class WelcomePageController {
     @RequestMapping(value = "/add-person", method = RequestMethod.POST)
     public String addPersonPOST(ModelMap model, @ModelAttribute("personform") PersonAddForm personform) {
 
+        Boolean isCreated = personService.create(model,personform);
 
-        Person person = new Person();
-        populatePerson(person, personform);
-
-        try {
-            mongoOperations.save(person);
-        } catch (Exception de) {
-            globalMessage.addMessage(MessageType.ERROR, "globalmessage.email.already.existed.error.text", model);
+        if (isCreated)
+            globalMessage.addMessage(MessageType.SUCCESS, "globalmessage.create.person.success.text", model);
+        else {
+            globalMessage.addMessage(MessageType.ERROR, "globalmessage.create.person.error.text", model);
             return UniversalUrlConstants.FORM_ADDPERSON;
         }
-//        personRepository.save(person);
-//        personRepository.findAll().forEach(System.out::println);
-
         model.addAttribute("addPerson", "This is addPerson page.");
         return UniversalUrlConstants.STATIC_ADDPERSON_SUCCESSPAGE;
-    }
-
-    private void populatePerson(Person person, PersonAddForm personform) {
-        person.setEmail(personform.getEmail());
-        person.setName(personform.getName());
-        person.setPassword(personform.getPassword());
     }
 
 }
