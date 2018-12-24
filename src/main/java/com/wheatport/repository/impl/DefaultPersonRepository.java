@@ -7,6 +7,8 @@ import com.wheatport.model.Person;
 import com.wheatport.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
+import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.MongoTemplate;
 
 import java.util.Objects;
 
@@ -36,4 +38,5 @@ public abstract class DefaultPersonRepository implements PersonRepository {
 
         return null;
     }
+
 }

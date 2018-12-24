@@ -1,5 +1,6 @@
 package com.wheatport.controller;
 
+import com.mongodb.DuplicateKeyException;
 import com.wheatport.constant.MessageType;
 import com.wheatport.constant.UniversalUrlConstants;
 import com.wheatport.form.PersonAddForm;
@@ -9,6 +10,7 @@ import com.wheatport.utils.GlobalMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.ObjectUtils;
@@ -35,6 +37,8 @@ public class WelcomePageController {
     private Environment env;
     @Autowired
     GlobalMessage globalMessage;
+    @Autowired
+    MongoOperations mongoOperations;
 
     @RequestMapping(method = RequestMethod.GET)
     public String sayHello(ModelMap model) {
@@ -115,11 +119,18 @@ public class WelcomePageController {
     @RequestMapping(value = "/add-person", method = RequestMethod.POST)
     public String addPersonPOST(ModelMap model, @ModelAttribute("personform") PersonAddForm personform) {
 
+
         Person person = new Person();
         populatePerson(person, personform);
 
-        personRepository.save(person);
-        personRepository.findAll().forEach(System.out::println);
+        try {
+            mongoOperations.save(person);
+        } catch (Exception de) {
+            globalMessage.addMessage(MessageType.ERROR, "globalmessage.email.already.existed.error.text", model);
+            return UniversalUrlConstants.FORM_ADDPERSON;
+        }
+//        personRepository.save(person);
+//        personRepository.findAll().forEach(System.out::println);
 
         model.addAttribute("addPerson", "This is addPerson page.");
         return UniversalUrlConstants.STATIC_ADDPERSON_SUCCESSPAGE;
