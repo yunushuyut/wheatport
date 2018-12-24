@@ -4,9 +4,12 @@ import com.mongodb.MongoClient;
 import com.wheatport.converter.UserWriterConverter;
 import com.wheatport.event.CascadeSaveMongoEventListener;
 import com.wheatport.event.UserCascadeSaveMongoEventListener;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.core.env.Environment;
 import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
 import org.springframework.data.mongodb.core.convert.CustomConversions;
 import org.springframework.data.mongodb.gridfs.GridFsTemplate;
@@ -17,18 +20,22 @@ import java.util.List;
 
 @Configuration
 @EnableMongoRepositories(basePackages = "com.wheatport.repository")
+@PropertySource("classpath:locale/config.properties")
 public class MongoConfig extends AbstractMongoConfiguration {
+
+    @Autowired
+    private Environment env;
 
     private final List<Converter<?, ?>> converters = new ArrayList<Converter<?, ?>>();
 
     @Override
     protected String getDatabaseName() {
-        return "test";
+        return env.getProperty("mongo.database");
     }
 
     @Override
     public MongoClient mongoClient() {
-        return new MongoClient("127.0.0.1", 27017);
+        return new MongoClient(env.getProperty("mongo.host"), Integer.parseInt(env.getProperty("mongo.port")));
     }
 
     @Override

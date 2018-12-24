@@ -23,7 +23,8 @@
 
 <div class="container">
     <div class="col-6 col-sm-6 col-md-6 mx-auto">
-        <form class="form-signin">
+
+        <form action="/signin" method="POST" class="register-form" modelAttribute="personform">
             <div class="text-center mb-4">
                 <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt=""
                      width="72"
@@ -34,27 +35,27 @@
                     Firefox.</a>
                 </p>
             </div>
-
-            <div class="form-label-group">
-                <label for="inputEmail">Email address</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required=""
-                       autofocus="">
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <label for="email">EMAIL</label>
+                    <input name="email" class="form-control" type="email">
+                </div>
             </div>
-
-            <div class="form-label-group">
-                <label for="inputPassword">Password</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <label for="password">PASSWORD</label>
+                    <input name="password" class="form-control" type="password">
+                </div>
             </div>
-
-            <div class="checkbox mb-3">
-                <label>
-                    <input type="checkbox" value="remember-me"> Remember me
-                </label>
+            <hr>
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+                    <button class="btn btn-default regbutton">Sign In</button>
+                </div>
             </div>
-            <button class="btn btn-lg btn-primary btn-block" style="margin-left: 0px ;" type="submit">Sign in</button>
-            <p class="mt-5 mb-3 text-dark text-left">Instruction</p>
         </form>
 
+        <p class="mt-5 mb-3 text-dark text-left">Instruction</p>
         <div class="col-12 mx-auto" style="padding: 15px 0px 60px 0px">
             We don't have to be a genius to be aware of global environmental mess we created over the years.
             The easiest thing we can do for our planet is recycling. Recycling is the process of turning used products-from household use,
